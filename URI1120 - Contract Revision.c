@@ -1,0 +1,60 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    int d,val,i,value,len,len1,count,j,c,position;
+    char str[1000],result[1000];
+    while(1)
+    {
+        scanf("%d",&d);
+        getchar();
+        gets(str);
+        if(d==0)
+        {
+            break;
+        }
+        count=0;
+        len=strlen(str);
+        for(i=0;i<len;i++)
+        {
+            val=str[i];
+            value=val-48;
+            if(value!=d)
+            {
+                result[count]=value+48;
+                count++;
+            }
+        }
+        result[count]='\0';
+        len1=strlen(result);
+        c=0;
+        for(i=0;i<len1;i++)
+        {
+            if(result[i]=='0')
+            {
+                c++;
+            }
+        }
+        if(c==len1)
+        {
+            printf("0\n");
+        }
+        else
+        {
+            for(i=0;i<len1;i++)
+            {
+                if(result[i]!='0')
+                {
+                    position=i;
+                    break;
+                }
+            }
+            for(i=position;i<len1;i++)
+            {
+                printf("%c",result[i]);
+            }
+            printf("\n");
+        }
+    }
+    return 0;
+}
